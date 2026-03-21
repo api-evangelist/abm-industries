@@ -1,0 +1,7 @@
+aid: abm-industries
+url: https://raw.githubusercontent.com/api-evangelist/abm-industries/refs/heads/main/apis.yml
+modified: '2026-03-21'
+apis: []
+common:
+  - type: Website
+    url: https://www.abm-industries.com
