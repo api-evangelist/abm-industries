@@ -1,0 +1,140 @@
+vocabulary:
+  name: ABM Industries Vocabulary
+  description: >-
+    Vocabulary covering key concepts in ABM Industries' facility management,
+    engineering, and data intelligence platform (ABM Connect), including
+    industrial IoT, work order management, and sustainability operations.
+  version: "1.0.0"
+  terms:
+    - term: Facility Management
+      definition: >-
+        The integrated coordination of people, place, process, and technology
+        to ensure the built environment functions optimally. ABM provides
+        cleaning, maintenance, and support services across commercial,
+        healthcare, aviation, and data center environments.
+      tags:
+        - facilities
+        - operations
+        - core
+
+    - term: ABM Connect
+      definition: >-
+        ABM's proprietary data intelligence platform that aggregates facility,
+        financial, equipment, IoT, and service-delivery data into a unified,
+        real-time, action-focused view for clients and operational teams.
+      tags:
+        - platform
+        - data-intelligence
+        - analytics
+
+    - term: Work Order
+      definition: >-
+        A formal request or task record used to schedule, assign, track, and
+        document maintenance or service activities within a facility. Work orders
+        integrate with CMMS systems and capture status, priority, technician
+        assignment, and completion data.
+      tags:
+        - maintenance
+        - cmms
+        - operations
+
+    - term: IoT Hub
+      definition: >-
+        ABM Connect's proprietary integration layer that aggregates data from
+        connected IoT sensors and smart building systems, enabling real-time
+        monitoring of space occupancy, energy consumption, air quality, and
+        equipment performance.
+      tags:
+        - iot
+        - sensors
+        - smart-building
+
+    - term: CMMS Integration
+      definition: >-
+        Open API connectivity between ABM Connect and Computerized Maintenance
+        Management Systems, enabling bidirectional synchronization of work
+        orders, asset records, and maintenance schedules.
+      tags:
+        - cmms
+        - integration
+        - maintenance
+
+    - term: Operational Intelligence
+      definition: >-
+        Proactive analytics capabilities within ABM Connect that detect
+        unexpected call-outs, late tasks, or failed inspections and trigger
+        immediate alerts with smart task reassignment recommendations.
+      tags:
+        - analytics
+        - alerts
+        - automation
+
+    - term: Scope of Work
+      definition: >-
+        A defined set of tasks and responsibilities assigned to facility service
+        teams, used by the ABM mobile app to route technicians and track
+        compliance with contracted service levels.
+      tags:
+        - operations
+        - compliance
+        - mobile
+
+    - term: Key Performance Indicator (KPI)
+      definition: >-
+        Quantitative metrics displayed on ABM Connect client dashboards to
+        measure facility performance, including service completion rates,
+        response times, compliance scores, and cost efficiency ratios.
+      tags:
+        - analytics
+        - dashboard
+        - metrics
+
+    - term: eMobility
+      definition: >-
+        ABM's service line encompassing electric vehicle (EV) charging
+        infrastructure design, deployment, and ongoing management for commercial
+        properties, campuses, and aviation facilities.
+      tags:
+        - ev
+        - electrification
+        - sustainability
+
+    - term: Sustainability Program
+      definition: >-
+        Energy efficiency initiatives and carbon footprint reduction programs
+        delivered by ABM, tracked through ABM Connect analytics and integrated
+        with building energy management systems.
+      tags:
+        - sustainability
+        - energy
+        - carbon
+
+    - term: Mission Critical Facility
+      definition: >-
+        High-reliability infrastructure environments such as data centers that
+        require specialized engineering services, continuous uptime monitoring,
+        and strict compliance with operational standards.
+      tags:
+        - data-center
+        - infrastructure
+        - reliability
+
+    - term: Compliance Tracking
+      definition: >-
+        Systematic recording and reporting of regulatory and contractual
+        adherence across safety standards, inspection protocols, and service
+        delivery requirements within the ABM platform.
+      tags:
+        - compliance
+        - safety
+        - reporting
+
+    - term: Smart Routing
+      definition: >-
+        ABM Connect's algorithmic capability that dynamically assigns tasks to
+        available field technicians based on location, skills, workload, and
+        priority, minimizing response times and maximizing workforce efficiency.
+      tags:
+        - automation
+        - workforce
+        - optimization

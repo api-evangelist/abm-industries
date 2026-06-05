@@ -1,0 +1,125 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "abm": "https://www.abm.com/vocab/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "ABMIndustries": {
+      "@id": "schema:Organization",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "description": "schema:description",
+    "industry": "schema:industry",
+    "numberOfEmployees": "schema:numberOfEmployees",
+    "logo": {
+      "@id": "schema:logo",
+      "@type": "@id"
+    },
+    "sameAs": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+
+    "ABMConnect": {
+      "@id": "abm:ABMConnect",
+      "@type": "@id"
+    },
+    "platform": "abm:platform",
+    "dataIntelligence": "abm:dataIntelligence",
+    "facilityManagement": "abm:facilityManagement",
+    "iotHub": "abm:iotHub",
+
+    "Facility": {
+      "@id": "abm:Facility",
+      "@type": "@id"
+    },
+    "facilityId": "abm:facilityId",
+    "facilityType": "abm:facilityType",
+    "location": "schema:location",
+    "squareFootage": "abm:squareFootage",
+    "client": "abm:client",
+    "services": "abm:services",
+
+    "WorkOrder": {
+      "@id": "abm:WorkOrder",
+      "@type": "@id"
+    },
+    "workOrderId": "abm:workOrderId",
+    "status": "abm:status",
+    "priority": "abm:priority",
+    "assignedTo": "abm:assignedTo",
+    "completedAt": {
+      "@id": "abm:completedAt",
+      "@type": "xsd:dateTime"
+    },
+    "category": "abm:category",
+
+    "IoTSensor": {
+      "@id": "abm:IoTSensor",
+      "@type": "@id"
+    },
+    "sensorId": "abm:sensorId",
+    "sensorType": "abm:sensorType",
+    "measurement": "abm:measurement",
+    "unit": "abm:unit",
+    "timestamp": {
+      "@id": "abm:timestamp",
+      "@type": "xsd:dateTime"
+    },
+    "reading": "abm:reading",
+
+    "ServiceDelivery": {
+      "@id": "abm:ServiceDelivery",
+      "@type": "@id"
+    },
+    "serviceType": "abm:serviceType",
+    "technician": "abm:technician",
+    "scheduledTime": {
+      "@id": "abm:scheduledTime",
+      "@type": "xsd:dateTime"
+    },
+    "completionStatus": "abm:completionStatus",
+    "compliance": "abm:compliance",
+
+    "Analytics": {
+      "@id": "abm:Analytics",
+      "@type": "@id"
+    },
+    "kpi": "abm:kpi",
+    "dashboard": "abm:dashboard",
+    "reportPeriod": "abm:reportPeriod",
+    "metric": "abm:metric",
+    "threshold": "abm:threshold",
+    "alert": "abm:alert",
+
+    "EnergyData": {
+      "@id": "abm:EnergyData",
+      "@type": "@id"
+    },
+    "consumption": "abm:consumption",
+    "carbonFootprint": "abm:carbonFootprint",
+    "efficiencyScore": "abm:efficiencyScore",
+
+    "Employee": {
+      "@id": "schema:Person",
+      "@type": "@id"
+    },
+    "employeeId": "abm:employeeId",
+    "role": "schema:jobTitle",
+    "certifications": "abm:certifications",
+    "clockIn": {
+      "@id": "abm:clockIn",
+      "@type": "xsd:dateTime"
+    },
+    "clockOut": {
+      "@id": "abm:clockOut",
+      "@type": "xsd:dateTime"
+    }
+  }
+}
