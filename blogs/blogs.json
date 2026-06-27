@@ -3,12 +3,12 @@
   "feeds": [
     {
       "source": "https://www.abm.com/perspectives",
-      "feed_url": "https://www.abm.com/perspectives",
-      "title": "ABM Perspectives",
+      "feed_url": "",
       "saved": 0,
-      "method": "html-scrape"
+      "method": "agent-scrape"
     }
   ],
   "post_count": 5,
-  "fetched": "2026-06-21T17:00:00Z"
+  "fetched": "2026-06-27T12:21:33Z",
+  "agent_pulled": "2026-06-27"
 }
