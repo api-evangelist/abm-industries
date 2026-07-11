@@ -36,6 +36,8 @@ apis:
       It aggregates data from front-line team members, safety incidents, financial data,
       work orders, and IoT sensors to deliver configurable analytics and smart routing.
 common:
+  - type: DomainSecurity
+    url: security/abm-industries-domain-security.yml
   - type: Website
     url: https://www.abm.com/
   - type: Portal
