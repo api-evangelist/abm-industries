@@ -1,0 +1,27 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  Searched npm (registry.npmjs.org text search), PyPI, and ABM's own site index (llms.txt, 594
+  entries) and GitHub organisation for first-party client libraries, 2026-08-29.
+provider: ABM Industries
+providerId: abm-industries
+package_count: 0
+packages: []
+note: >-
+  ABM Industries publishes no first-party client SDK, package or distributed build in any
+  registry checked. npm search for "abm-connect" returned no ABM-authored package; PyPI
+  /pypi/abm-connect/json returned 404. The GitHub organisation https://github.com/ABM-Industries
+  exists (created 2024-06-07) but is unverified and holds ZERO public repositories, so it is
+  recorded here as an observation rather than wired as a developer surface. Note that the "ABM"
+  acronym collides heavily with Account-Based Marketing and Apple Business Manager in registry
+  and web search — no package matched on those names belongs to ABM Industries.
+evidence:
+  - url: https://registry.npmjs.org/-/v1/search?text=abm-connect&size=10
+    status: 200
+  - url: https://pypi.org/pypi/abm-connect/json
+    status: 404
+  - url: https://api.github.com/orgs/ABM-Industries/repos?per_page=100
+    status: 200
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

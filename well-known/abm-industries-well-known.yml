@@ -1,0 +1,127 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  Live unauthenticated GET of the /.well-known/ discovery surface on every ABM host named in
+  apis.yml plus every API host read from ABM's own first-party Angular bundle at
+  https://connect.abm.com/chunk-QN7SXVIA.js (the production `environment` constant), 2026-08-29.
+provider: ABM Industries
+providerId: abm-industries
+note: >-
+  One real document was served. The Azure AD B2C tenant `connect2ABM` publishes a full OpenID
+  Connect discovery document. The domain is b2clogin.com rather than abm.com because Azure AD B2C
+  gives every tenant a dedicated `<tenant>.b2clogin.com` authority host; ABM's own production app
+  config names `https://connect2ABM.b2clogin.com/connect2ABM.onmicrosoft.com/B2C_1_cft-signin`
+  as its `authority`, which is what makes this ABM's auth surface rather than a third party's.
+  Every abm.com host itself returned 404 or an SPA shell. connect.abm.com and connectemp.abm.com
+  are Angular single-page apps whose catch-all answers 200 with HTML for every /.well-known/*
+  path — recorded as misses, not hits.
+hosts:
+  - host: www.abm.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: connect.abm.com
+    note: Angular SPA catch-all — returns 200 text/html (30,899 bytes) for every path. Not documents.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        result: html-shell
+      - path: /.well-known/openid-configuration
+        status: 200
+        result: html-shell
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        result: html-shell
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        result: html-shell
+      - path: /.well-known/api-catalog
+        status: 200
+        result: html-shell
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        result: html-shell
+      - path: /.well-known/agent-card.json
+        status: 200
+        result: html-shell
+      - path: /.well-known/agent.json
+        status: 200
+        result: html-shell
+  - host: connectemp.abm.com
+    note: Employee-facing Angular SPA, same catch-all shell as connect.abm.com.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        result: html-shell
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        result: html-shell
+      - path: /.well-known/agent-card.json
+        status: 200
+        result: html-shell
+      - path: /.well-known/security.txt
+        status: 200
+        result: html-shell
+      - path: /.well-known/api-catalog
+        status: 200
+        result: html-shell
+  - host: connectapi.abm.com
+    note: Azure API Management gateway fronting the ABM Connect customer API. JSON 404 envelope.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+  - host: appservices.abm.com
+    note: Task-management API host named in ABM's own app config; every path answered 502 Bad Gateway.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 502
+      - path: /.well-known/oauth-protected-resource
+        status: 502
+      - path: /.well-known/agent-card.json
+        status: 502
+      - path: /.well-known/security.txt
+        status: 502
+      - path: /.well-known/api-catalog
+        status: 502
+  - host: abm-apim.azure-api.net
+    note: >-
+      ABM's Azure API Management instance, referenced from connect.abm.com's main bundle as the
+      base for mock services. Answers 401 "Access denied due to missing subscription key".
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 401
+      - path: /.well-known/agent-card.json
+        status: 401
+  - host: connect2abm.b2clogin.com
+    note: >-
+      ABM's own Azure AD B2C tenant authority (connect2ABM.onmicrosoft.com), named as `authority`
+      in ABM's production client config. The only real .well-known document ABM serves.
+    documents:
+      - path: /connect2ABM.onmicrosoft.com/B2C_1_cft-signin/v2.0/.well-known/openid-configuration
+        status: 200
+        file: abm-industries-openid-configuration.json
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

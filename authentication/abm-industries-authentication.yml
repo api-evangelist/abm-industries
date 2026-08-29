@@ -1,0 +1,92 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  ABM's own production client configuration read from https://connect.abm.com/chunk-QN7SXVIA.js
+  and https://connect.abm.com/main-FEOQKLI7.js, plus a live unauthenticated fetch of the resulting
+  Azure AD B2C OpenID Connect discovery document, 2026-08-29.
+provider: ABM Industries
+providerId: abm-industries
+api: ABM Connect
+summary: >-
+  The ABM Connect API is not publicly documented, but its authentication model is fully
+  determinable from the first-party client ABM ships at connect.abm.com. Two layers gate it:
+  an Azure API Management subscription key at the gateway, and an OAuth 2.0 / OpenID Connect
+  bearer token issued by ABM's own Azure AD B2C tenant. There is no self-service signup, no
+  public client registration, and no documented API-key issuance path — credentials come with
+  a facilities-services contract.
+schemes:
+  - id: azure_ad_b2c_oauth2
+    type: oauth2
+    flow: authorization_code
+    pkce: unstated
+    description: >-
+      Customer sign-in to ABM Connect. Microsoft Authentication Library (MSAL) redirect flow
+      against ABM's Azure AD B2C tenant, user flow B2C_1_cft-signin.
+    authority: https://connect2ABM.b2clogin.com/connect2ABM.onmicrosoft.com/B2C_1_cft-signin
+    discovery: https://connect2abm.b2clogin.com/connect2abm.onmicrosoft.com/B2C_1_cft-signin/v2.0/.well-known/openid-configuration
+    authorization_endpoint: https://connect2abm.b2clogin.com/connect2abm.onmicrosoft.com/b2c_1_cft-signin/oauth2/v2.0/authorize
+    token_endpoint: https://connect2abm.b2clogin.com/connect2abm.onmicrosoft.com/b2c_1_cft-signin/oauth2/v2.0/token
+    end_session_endpoint: https://connect2abm.b2clogin.com/connect2abm.onmicrosoft.com/b2c_1_cft-signin/oauth2/v2.0/logout
+    jwks_uri: https://connect2abm.b2clogin.com/connect2abm.onmicrosoft.com/b2c_1_cft-signin/discovery/v2.0/keys
+    issuer: https://connect2abm.b2clogin.com/01698e86-a3b5-4f25-a6a5-a91df3c194cd/v2.0/
+    id_token_signing_alg: RS256
+    subject_type: pairwise
+    token_endpoint_auth_methods:
+      - client_secret_post
+      - client_secret_basic
+    scopes:
+      - https://connect2ABM.onmicrosoft.com/31f16065-3479-4b3c-a3cd-e337cafc33c9/cft_client_access
+      - openid
+    claims:
+      [name, given_name, family_name, idp, emails, sub, tfp, isForgotPassword, iss, iat, exp, aud, acr, nonce, auth_time]
+    verified: probed
+  - id: entra_id_oauth2
+    type: oauth2
+    flow: authorization_code
+    description: >-
+      A second MSAL configuration in the same bundle targets ABM's corporate Microsoft Entra ID
+      tenant directly (login.microsoftonline.com/<tenant>), used for the internal/employee
+      variant of the app. Same access scope.
+    authority: https://login.microsoftonline.com/01698e86-a3b5-4f25-a6a5-a91df3c194cd
+    discovery: https://login.microsoftonline.com/01698e86-a3b5-4f25-a6a5-a91df3c194cd/v2.0/.well-known/openid-configuration
+    verified: probed
+  - id: apim_subscription_key
+    type: apiKey
+    in: header
+    name: Ocp-Apim-Subscription-Key
+    description: >-
+      Azure API Management gateway key. Every unauthenticated request to
+      https://abm-apim.azure-api.net/ returns HTTP 401 with the body
+      "Access denied due to missing subscription key. Make sure to include subscription key when
+      making requests to an API." The connectapi.abm.com gateway answers 404/500 JSON rather than
+      401, but is the same APIM product.
+    verified: probed
+    evidence:
+      - url: https://abm-apim.azure-api.net/
+        status: 401
+onboarding:
+  self_service: false
+  public_signup: false
+  dynamic_client_registration: false
+  note: >-
+    No developer portal, no key-request form and no published client-registration endpoint were
+    found. Access to ABM Connect is provisioned by ABM to contracted customers.
+hosts:
+  - host: connectapi.abm.com
+    role: customer API gateway (Azure API Management)
+  - host: appservices.abm.com
+    role: task-management / ops API host (502 at probe time)
+  - host: abm-apim.azure-api.net
+    role: Azure API Management instance (mock services base)
+evidence:
+  - url: https://connect2abm.b2clogin.com/connect2abm.onmicrosoft.com/B2C_1_cft-signin/v2.0/.well-known/openid-configuration
+    status: 200
+  - url: https://login.microsoftonline.com/01698e86-a3b5-4f25-a6a5-a91df3c194cd/v2.0/.well-known/openid-configuration
+    status: 200
+  - url: https://abm-apim.azure-api.net/
+    status: 401
+  - url: https://connectapi.abm.com/cust-api/
+    status: 500
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

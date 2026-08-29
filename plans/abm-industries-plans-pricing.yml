@@ -4,43 +4,38 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: ABM Industries
 providerId: abm-industries
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-08-29'
+generated: '2026-08-29'
+method: searched
+source: https://www.abm.com/abm-connect
+reconciled: true
 tags:
   - Facilities Management
   - Engineering
   - Infrastructure
-description: ABM Industries delivers facility, engineering, and mobility solutions and bundles its ABM
-  Connect data-intelligence platform inside its services contracts. There is no public developer pricing
-  or self-service API plan; integrations are scoped inside the master facilities-management agreement.
-notes: No public developer pricing — placeholder only. ABM Connect access is bundled with services contracts.
-sources:
-  - https://www.abm.com/abm-connect
-plans:
-  - id: abm-industries-services
-    name: Facilities Services Contract
-    type: enterprise
-    description: ABM facilities / engineering / mobility services contract that includes ABM Connect access
-      for the customer.
-    entries:
-      - label: Services contract
-        name: services_contract
-        type: subscription
-        metric: contract
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact ABM sales
-        userMultiplied: false
-    elements:
-      - name: ABM Connect data intelligence platform
-      - name: Facilities management services
-      - name: IoT / equipment data feeds
-      - name: Pricing governed by services agreement
+plan_count: 0
+plans: []
+description: >-
+  ABM Industries publishes no pricing, no plans and no self-service tier for ABM Connect or for
+  any API. This was checked, not assumed: the ABM Connect product page carries no pricing and no
+  "request a demo" pricing path, only a "Speak with the experts" contact CTA and a sales phone
+  number (866.624.1520); ABM's own llms.txt site index of 594 pages contains no pricing page at
+  all. ABM Connect is bundled into a facilities-services contract negotiated with ABM sales, so
+  a caller cannot learn the cost of access without entering a sales conversation.
+pricing_model: enterprise contact-sales only
+public_pricing_page: false
+self_service_signup: false
+free_tier: false
+trial: false
+notes: >-
+  Upgraded 2026-08-29 from a 2026-05-04 bulk-sweep placeholder (method: generated) that asserted
+  a synthetic "Facilities Services Contract" plan entry. That entry described a commercial
+  arrangement ABM does not publish, so it has been replaced with an evidenced plan_count of 0.
+evidence:
+  - url: https://www.abm.com/abm-connect
+    status: 200
+  - url: https://www.abm.com/llms.txt
+    status: 200
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

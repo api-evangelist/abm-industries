@@ -40,7 +40,7 @@ description: >-
   ABM Connect is their data intelligence platform that unifies facility, financial,
   equipment, IoT, and service-delivery data.
 created: '2026-03-21'
-modified: '2026-04-19'
+modified: '2026-08-29'
 specificationVersion: '0.23'
 apis:
   - aid: abm-industries:abm-connect
@@ -50,9 +50,25 @@ apis:
       - Data Intelligence
       - IoT
     humanURL: https://www.abm.com/abm-connect
+    baseURL: https://connectapi.abm.com/cust-api/
+    baseURLSource: >-
+      Read verbatim from ABM's own production client configuration (the `BaseURL` constant in
+      https://connect.abm.com/chunk-QN7SXVIA.js) on 2026-08-29. The host is an Azure API
+      Management gateway that answers 404/500 JSON without credentials; ABM publishes no API
+      reference naming it.
     properties:
       - type: Documentation
         url: https://www.abm.com/abm-connect
+      - type: Authentication
+        url: authentication/abm-industries-authentication.yml
+      - type: OAuthScopes
+        url: scopes/abm-industries-scopes.yml
+      - type: ErrorCatalog
+        url: errors/abm-industries-problem-types.yml
+      - type: Conventions
+        url: conventions/abm-industries-conventions.yml
+      - type: RateLimits
+        url: rate-limits/abm-industries-rate-limits.yml
     description: >-
       ABM Connect is a data intelligence platform that unifies facility, financial,
       equipment, IoT, and service-delivery data into a real-time, action-focused view.
@@ -61,6 +77,24 @@ apis:
 common:
   - type: DomainSecurity
     url: security/abm-industries-domain-security.yml
+  - type: LLMsTxt
+    url: llms/abm-industries-llms.txt
+  - type: WellKnown
+    url: well-known/abm-industries-well-known.yml
+  - type: Conformance
+    url: conformance/abm-industries-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/abm-industries-lifecycle.yml
+  - type: Packages
+    url: packages/abm-industries-packages.yml
+  - type: Plans
+    url: plans/abm-industries-plans-pricing.yml
+  - type: FinOps
+    url: finops/abm-industries-finops.yml
+  - type: Vocabulary
+    url: vocabulary/abm-industries-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/abm-industries-context.jsonld
   - type: Website
     url: https://www.abm.com/
   - type: Portal
@@ -118,3 +152,8 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-29'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v1

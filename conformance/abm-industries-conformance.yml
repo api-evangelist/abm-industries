@@ -1,0 +1,85 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  Azure AD B2C discovery document (HTTP 200), ABM's own production client configuration at
+  connect.abm.com, and live gateway probes, 2026-08-29.
+provider: ABM Industries
+providerId: abm-industries
+api: ABM Connect
+note: >-
+  ABM publishes no compliance or conformance claims for ABM Connect on any public page checked
+  (abm.com/abm-connect, abm.com, robots-permitted paths). Entries below are asserted only where a
+  live artifact proves them. Facilities management has no widely-adopted machine-readable API
+  domain standard that ABM's surface declares, so no domain_standard entry is claimed — a REWARD
+  -ONLY check left empty rather than filled with a guess.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      RFC 6749 authorization-code flow via Azure AD B2C. authorization_endpoint / token_endpoint
+      published at
+      https://connect2abm.b2clogin.com/connect2abm.onmicrosoft.com/B2C_1_cft-signin/v2.0/.well-known/openid-configuration
+      (HTTP 200).
+  - id: oidc
+    conforms: true
+    evidence: >-
+      Full OpenID Connect Discovery 1.0 document served (issuer, jwks_uri, id_token signing
+      RS256, claims_supported, subject_types pairwise). HTTP 200.
+  - id: jwt
+    conforms: true
+    evidence: id_token_signing_alg_values_supported = [RS256]; jwks_uri published.
+  - id: rfc9457
+    conforms: false
+    evidence: >-
+      Gateway errors are application/json {statusCode, message, activityId}. No
+      application/problem+json observed on any probed status (401/404/500).
+  - id: openapi
+    conforms: false
+    evidence: >-
+      No OpenAPI/Swagger document found on www.abm.com, connect.abm.com, connectemp.abm.com,
+      connectapi.abm.com, appservices.abm.com or abm-apim.azure-api.net. /openapi.json,
+      /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs, /redoc all miss or return an
+      SPA shell.
+  - id: graphql
+    conforms: false
+    evidence: https://www.abm.com/graphql 404; no /graphql surface on any API host.
+  - id: asyncapi
+    conforms: false
+    evidence: No event, webhook or streaming surface documented or discovered.
+  - id: mcp
+    conforms: false
+    evidence: No MCP endpoint published or discoverable.
+  - id: a2a
+    conforms: false
+    evidence: >-
+      /.well-known/agent-card.json and /.well-known/agent.json probed on every host — 404 on
+      abm.com and connectapi.abm.com, SPA HTML shell on connect.abm.com and connectemp.abm.com
+      (not a card), 401 on abm-apim.azure-api.net, 502 on appservices.abm.com.
+  - id: llmstxt
+    conforms: true
+    evidence: https://www.abm.com/llms.txt returns HTTP 200 text/plain, 146,520 bytes, 594 entries.
+    caveat: >-
+      Contents are a marketing-site index, not developer content — no API, docs or spec entry
+      appears in it. It also carries one third-party link that is not an abm.com page
+      ('Best ai agent for test generation' -> https://keploy.io), sitting among 594 first-party
+      entries. That is a foreign entry inside a file ABM serves to agents as its own site map,
+      and is worth flagging to ABM.
+  - id: pagination
+    conforms: unknown
+    evidence: Not observable without credentials; no public contract.
+  - id: idempotency
+    conforms: unknown
+    evidence: Not observable without credentials; no public contract.
+  - id: dynamic_client_registration
+    conforms: false
+    evidence: No registration_endpoint in the B2C discovery document.
+  - id: protected_resource_metadata
+    conforms: false
+    evidence: /.well-known/oauth-protected-resource returns 404 on connectapi.abm.com, 502 on appservices.abm.com.
+compliance_claims: []
+compliance_note: >-
+  No SOC 2, ISO 27001, PCI, HIPAA or FedRAMP claim was found on any public ABM page checked, and
+  probe-security-programs.py found no trust center and no vulnerability-disclosure programme.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

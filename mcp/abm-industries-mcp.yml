@@ -1,0 +1,34 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  Searched for a hosted or packaged ABM MCP server across abm.com (full llms.txt site index),
+  connect.abm.com, npm and the ABM GitHub organisation, and probed every ABM host for an MCP or
+  agent-card surface, 2026-08-29.
+provider: ABM Industries
+providerId: abm-industries
+status: none
+tools: []
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+note: >-
+  ABM Industries ships no MCP server, remote or local. No candidate tool list is derived either:
+  the pipeline derives candidates from OpenAPI operations and ABM publishes no OpenAPI, so there
+  is nothing to ground tool definitions in and none are invented here. The nearest thing ABM ships
+  to an agent-facing surface is an AI-assistant API host referenced in its own client config
+  (https://appservices-uat.abm.com/external/task-mgmt/ai-assitant/) — a UAT host, gated, with no
+  MCP framing. No pointer is emitted for this artifact; it records an absence.
+evidence:
+  - url: https://www.abm.com/.well-known/ai-plugin.json
+    status: 404
+  - url: https://connectapi.abm.com/.well-known/oauth-protected-resource
+    status: 404
+  - url: https://abm-apim.azure-api.net/
+    status: 401
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

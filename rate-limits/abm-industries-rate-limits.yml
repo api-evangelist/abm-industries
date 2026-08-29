@@ -4,31 +4,41 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: ABM Industries
 providerId: abm-industries
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-08-29'
+generated: '2026-08-29'
+method: searched
+source: https://www.abm.com/abm-connect
+reconciled: true
 tags:
   - Facilities Management
   - Engineering
   - Rate Limiting
-description: ABM Industries does not publish public rate-limit documentation for ABM Connect. Throughput
-  is governed by the customer's facilities-services contract.
-notes: No public developer rate-limit documentation — placeholder only.
-sources:
-  - https://www.abm.com/abm-connect
+limit_count: 0
+limits: []
+description: >-
+  ABM Industries publishes no rate limits for ABM Connect. There is no developer portal, no API
+  reference and no limits page anywhere in ABM's own 594-entry llms.txt site index.
+response_headers:
+  observed: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header appeared on any unauthenticated response
+    from https://connectapi.abm.com/ or https://abm-apim.azure-api.net/. ABM fronts its APIs with
+    Azure API Management, which can enforce quota and rate-limit policies, but whether ABM
+    applies any — and what it would return — cannot be established without credentials.
 responseCodes:
-  throttled: 429
-limits:
-  - name: ABM Connect throttling
-    scope: account
-    metric: varies
-    limit: governed by services contract; no public numeric ceiling
-policies:
-  - name: Contract-defined throttling
-    description: ABM Connect query and IoT feed volume are scoped to the active services agreement; coordinate
-      changes with the ABM account team.
+  throttled: unknown
+  note: 429 was never observed; the gateway returned 401/404/500 on probe.
+notes: >-
+  Upgraded 2026-08-29 from a 2026-05-04 bulk-sweep placeholder (method: generated) which asserted
+  a named "ABM Connect throttling" policy and a 429 response code that no evidence supports. An
+  honest zero replaces it.
+evidence:
+  - url: https://abm-apim.azure-api.net/
+    status: 401
+  - url: https://connectapi.abm.com/cust-api/
+    status: 500
+  - url: https://www.abm.com/llms.txt
+    status: 200
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

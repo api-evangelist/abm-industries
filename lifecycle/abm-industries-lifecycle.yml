@@ -1,0 +1,51 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  Searched abm.com (including the full 594-entry llms.txt ABM publishes), the ABM Connect page,
+  and probed status./trust. subdomains, 2026-08-29.
+provider: ABM Industries
+providerId: abm-industries
+api: ABM Connect
+versioning:
+  policy_published: false
+  scheme: none observed
+  note: Resource paths carry no version segment; no version header is documented.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: No deprecation or sunset policy is published for ABM Connect.
+status_page:
+  published: false
+  url: null
+  evidence:
+    - url: https://status.abm.com
+      status: NXDOMAIN
+  note: >-
+    No status page. status.abm.com does not resolve, and no status/uptime link appears anywhere
+    in ABM's own llms.txt site index.
+sla:
+  published: false
+  note: Service levels are set inside the facilities-services contract, not published.
+changelog:
+  published: false
+  note: >-
+    ABM publishes a corporate news-and-events feed (https://www.abm.com/company/news-events) and
+    a Perspectives blog, but neither is an API changelog. No dated release notes for ABM Connect.
+support:
+  channels:
+    - type: contact-form
+      url: https://www.abm.com/contact/general-inquiries
+    - type: phone
+      value: '866.624.1520'
+      source: https://www.abm.com/abm-connect
+  developer_support: none published
+deprecated_operations: []
+note: >-
+  Everything above is an honest absence rather than an unchecked field. ABM Connect is a
+  contracted customer platform; its operational lifecycle commitments live in the master services
+  agreement and are not published.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

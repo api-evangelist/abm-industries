@@ -1,0 +1,104 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  ABM's own production client bundles at connect.abm.com plus live gateway probes, 2026-08-29.
+  No public API reference exists to search; nothing below is inferred from marketing copy.
+provider: ABM Industries
+providerId: abm-industries
+api: ABM Connect
+summary: >-
+  ABM Connect's cross-cutting semantics are almost entirely undocumented. The auth style and the
+  error envelope are the only two dimensions that could be established from public evidence.
+auth:
+  style: OAuth 2.0 bearer (Azure AD B2C) layered behind an Azure API Management subscription key
+  detail: see authentication/abm-industries-authentication.yml
+  scopes: see scopes/abm-industries-scopes.yml
+error_envelope:
+  format: vendor-json { statusCode, message, activityId }
+  rfc9457: false
+  detail: see errors/abm-industries-problem-types.yml
+request_id_tracing:
+  supported: partial
+  mechanism: >-
+    An `activityId` UUID is returned in the body of 5xx gateway responses. No request-id request
+    header is documented, and none was observable on unauthenticated calls.
+idempotency:
+  supported: unknown
+  header: null
+  note: >-
+    No idempotency key, header or scope is documented, and the write surface cannot be exercised
+    without credentials. Recorded as unknown rather than na — the API clearly has write
+    operations (work orders, surveys, task management), so this is a real undocumented gap, not
+    an inapplicable dimension.
+pagination:
+  style: unknown
+  note: Not observable without credentials; no public contract.
+field_expansion:
+  supported: unknown
+sparse_fields:
+  supported: unknown
+metadata:
+  supported: unknown
+versioning:
+  scheme: path-segment (observed)
+  note: >-
+    Resource paths carry no version segment (e.g. /cust-api/WorkOrder/). One host,
+    appservices.abm.com/external/task-mgmt/, separates a `cust-api` from a `tasks-api`. No
+    published versioning policy, no version header, no deprecation policy.
+rate_limit_signaling:
+  headers: unknown
+  note: >-
+    No X-RateLimit-* / RateLimit-* headers were observable on unauthenticated responses, and no
+    limits are published. Azure API Management supports quota policies, but whether ABM applies
+    them and what they signal cannot be established. See rate-limits/.
+content_negotiation:
+  request: application/json; some operations use application/x-www-form-urlencoded (observed in
+    the client's WorkOrder calls)
+  response: application/json
+reversibility:
+  assessment: undocumented
+  grade: undocumented
+  credit: 0.0
+  read_only_api: false
+  note: >-
+    ABM Connect exposes write surfaces — work orders, surveys, task management, user management,
+    document upload — but publishes no cancel / void / reverse / restore operation, no reversal
+    window, and no documentation at all that an agent could read before acting. No window is
+    asserted here because ABM states none; inventing one would be the single most expensive error
+    available in this artifact.
+  write_surfaces:
+    - surface: WorkOrder/
+      reversal_operation: null
+      window: null
+      docs: null
+    - surface: TaskManagementOpsApi (appservices.abm.com/external/task-mgmt/cust-api/)
+      reversal_operation: null
+      window: null
+      docs: null
+    - surface: survey
+      reversal_operation: null
+      window: null
+      docs: null
+    - surface: ManageUser/ and UserAccess/
+      reversal_operation: null
+      window: null
+      docs: null
+    - surface: Documents/
+      reversal_operation: null
+      window: null
+      docs: null
+dry_run_mode:
+  supported: unknown
+  note: >-
+    Not documented. ABM does run an Azure API Management mock base
+    (https://abm-apim.azure-api.net/mocks/, referenced by the client's own request service), but
+    it is gated behind a subscription key and is not offered to callers as a rehearsal surface.
+cross_links:
+  errors: errors/abm-industries-problem-types.yml
+  lifecycle: lifecycle/abm-industries-lifecycle.yml
+  authentication: authentication/abm-industries-authentication.yml
+  scopes: scopes/abm-industries-scopes.yml
+  rate_limits: rate-limits/abm-industries-rate-limits.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

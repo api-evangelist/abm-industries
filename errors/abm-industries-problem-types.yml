@@ -1,0 +1,68 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  Live unauthenticated requests to ABM's API gateways, 2026-08-29. No OpenAPI exists to derive
+  from, so every entry below is an error body ABM actually returned to this run.
+provider: ABM Industries
+providerId: abm-industries
+api: ABM Connect
+format: vendor-json
+rfc9457: false
+note: >-
+  ABM Connect fronts its APIs with Azure API Management, so the error envelope a caller sees at
+  the edge is APIM's, not ABM's. It is NOT RFC 9457 problem+json: content-type is application/json
+  and the shape is {statusCode, message} plus an {activityId} correlation GUID on 5xx. No `type`
+  URI, no `title`, no `detail`, no machine-readable error code. Backend errors past the gateway
+  could not be observed without credentials.
+envelope:
+  content_type: application/json
+  fields:
+    - name: statusCode
+      type: integer
+      description: HTTP status repeated in the body.
+    - name: message
+      type: string
+      description: Human-readable message. Not a stable machine code.
+    - name: activityId
+      type: string (uuid)
+      description: Correlation id, present on 5xx. The only value worth quoting to ABM support.
+  correlation_header: activityId (body field, not a header)
+problem_types:
+  - status: 401
+    message: >-
+      Access denied due to missing subscription key. Make sure to include subscription key when
+      making requests to an API.
+    meaning: No Ocp-Apim-Subscription-Key header was supplied to the Azure API Management gateway.
+    remediation: >-
+      Obtain a gateway subscription key from ABM; there is no self-service issuance path.
+    observed_at: https://abm-apim.azure-api.net/
+  - status: 404
+    message: Resource not found
+    meaning: No APIM operation matches the requested path on this gateway.
+    remediation: Check the resource path against the ABM Connect client configuration.
+    observed_at: https://connectapi.abm.com/
+  - status: 500
+    message: Internal server error
+    meaning: >-
+      The gateway matched a route and forwarded upstream, and the backend failed — observed on
+      every /cust-api/* path when called without a bearer token. A 500 here is effectively an
+      unauthenticated-request failure, not a server fault, which makes it an unhelpful signal
+      for a caller.
+    remediation: Present a valid Azure AD B2C bearer token; quote activityId to ABM support.
+    observed_at: https://connectapi.abm.com/cust-api/
+    fields: [statusCode, message, activityId]
+  - status: 502
+    message: 502 Bad Gateway (HTML, from Microsoft-Azure-Application-Gateway)
+    meaning: >-
+      Every probed path on appservices.abm.com returned an HTML 502 at probe time. This host is
+      named in ABM's production client config as the task-management / OpsConnect API base.
+    remediation: None available to a caller — an ABM-side availability issue.
+    observed_at: https://appservices.abm.com/
+gaps:
+  - No RFC 9457 application/problem+json anywhere on the surface.
+  - No documented error-code vocabulary; `message` strings are prose.
+  - Unauthenticated calls return 500 rather than 401 on the customer gateway, so a client cannot
+    distinguish "not authenticated" from "server broken" without out-of-band knowledge.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
