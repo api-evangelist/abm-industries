@@ -1,7 +1,9 @@
 ---
 title: AI-Driven Solutions & Strategies in Facilities Management
 url: https://www.abm.com/perspectives/ai-driven-facility-management-strategies-webinar
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"ABM Industries" press release artificial intelligence'
 position: 4
 source: serpapi-google

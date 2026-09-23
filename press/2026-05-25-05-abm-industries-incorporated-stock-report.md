@@ -1,7 +1,9 @@
 ---
 title: ABM Industries Incorporated Stock Report
 url: https://www.roic.ai/quote/ABM/classic
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"ABM Industries" press release artificial intelligence'
 position: 5
 source: serpapi-google
