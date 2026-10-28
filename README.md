@@ -1,4 +1,4 @@
-# ABM Industries (abm-industries)
+# ABM Industries
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,78 +66,121 @@
 
 ABM Industries provides facility, engineering and infrastructure, and mobility solutions helping organizations with health and safety, resilience, productivity, and sustainability. ABM serves over 100,000 employees across industries including aerospace, aviation, commercial real estate, data centers, healthcare, and more. ABM Connect is their data intelligence platform that unifies facility, financial, equipment, IoT, and service-delivery data.
 
-**URL:** [https://www.abm.com/](https://www.abm.com/)
+**Areas:** Facilities Management · Engineering · Infrastructure · Mobility · Fortune 500
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## ABM Industries on APIs.io
 
-## Tags:
+Everything profiled for ABM Industries is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/abm-industries/](https://apis.io/providers/abm-industries/)** — or go straight to one of the APIs or properties below.
 
- - Facilities Management, Engineering, Infrastructure, Mobility
+### APIs (1)
 
-## Timestamps
+- [ABM Connect](https://apis.io/apis/abm-industries/abm-connect/) — ABM Connect is a data intelligence platform that unifies facility, financial, equipment, IoT, and service-delivery data into a real-time, action-focused…
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### ABM Connect
-ABM Connect is a data intelligence platform that unifies facility, financial, equipment, IoT, and service-delivery data into a real-time, action-focused view. It aggregates data from front-line team members, safety incidents, financial data, work orders, and IoT sensors to deliver configurable analytics and smart routing.
+#### JSON-LD (1)
 
-**Human URL:** [https://www.abm.com/abm-connect](https://www.abm.com/abm-connect)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags:
+- [Abm Industries Context](https://apis.io/jsonld/abm-industries/abm-industries-context/)
 
- - Facilities Management, Data Intelligence, IoT
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://www.abm.com/abm-connect)
+- [ABM Industries Vocabulary](https://apis.io/vocabularies/abm-industries/abm-industries-vocabulary/)
 
-## Common Properties
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Abm Industries Authentication](https://apis.io/security/abm-industries/abm-industries-authentication/)
+- [Abm Industries Domain Security](https://apis.io/security/abm-industries/abm-industries-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Abm Industries Scopes](https://apis.io/scopes/abm-industries/abm-industries-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Abm Industries Plans Pricing](https://apis.io/plans/abm-industries/abm-industries-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Abm Industries Rate Limits](https://apis.io/rate-limits/abm-industries/abm-industries-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Abm Industries Finops](https://apis.io/finops/abm-industries/abm-industries-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.abm.com/)
-- [Portal](https://connect.abm.com/)
 - [Blog](https://www.abm.com/perspectives)
-- [Contact](https://www.abm.com/contact/general-inquiries)
-- [Privacy Policy](https://www.abm.com/privacy-policy)
-- [Terms of Service](https://www.abm.com/terms-of-use)
-- [LinkedIn](https://www.linkedin.com/company/abm-industries/)
-- [YouTube](https://www.youtube.com/user/ABMindustries)
+- [Terms of service](https://www.abm.com/terms-of-use)
+- [Privacy policy](https://www.abm.com/privacy-policy)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Real-Time Facility Dashboards | Client-facing dashboards with real-time KPIs, daily scope reports, invoices, and work-order history. |
-| Mobile Team Member App | Mobile app for clock-in, task routing by scope of work, training access, compliance tracking, and supervisor communication. |
-| Operational Intelligence | Proactive alerts for unexpected call-outs, late tasks, or failed inspections with immediate task reassignment capabilities. |
-| Advanced Analytics | Configurable analytics tailored to client needs with IoT Hub integration, customizable algorithms, and smart routing solutions. |
-| IoT Hub Integration | Proprietary IoT Hub for aggregating space data and sensor information from connected facility devices. |
-| Data Aggregation | Aggregates BI, CMMS, energy, engineering, financial, and service delivery data from multiple sources into a centralized stack. |
+**Kin Score 28.6** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 14.7 |
+| Contract governance | 31.8 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 21.1 |
 
-| Name | Description |
-|------|-------------|
-| Facility Operations Management | Manage cleaning, maintenance, and support services across commercial and institutional facilities. |
-| Engineering and HVAC Maintenance | Operations and maintenance for HVAC, mechanical, and infrastructure systems. |
-| eMobility and Electrification | Electric vehicle charging infrastructure deployment and management for commercial properties. |
-| Mission Critical Facilities | Specialized services for data centers and mission-critical infrastructure requiring high reliability. |
-| Healthcare Facility Management | Environmental services and engineering solutions tailored to healthcare environments with compliance requirements. |
-| Aviation Ground Support | Facility and ground support services for airports and airline operations. |
-| Sustainability Programs | Energy efficiency and sustainability programs to reduce carbon footprint and operational costs. |
+**Agent readiness 11.9** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| CMMS Integration | Open API integration with Computerized Maintenance Management Systems for work order and asset tracking. |
-| IoT Sensor Platforms | Integration with IoT sensors and smart building systems via ABM Connect IoT Hub. |
-| Third-Party Data APIs | ABM Connect aggregates data from third-party APIs for comprehensive facility intelligence. |
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
 
-## Maintainers
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/abm-industries/](https://apis.io/providers/abm-industries/).
 
-**FN:** Kin Lane
+## How this profile is made
 
-**Email:** kin@apievangelist.com
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ABM Industries: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/abm-industries/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
