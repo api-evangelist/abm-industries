@@ -96,32 +96,32 @@ The provider's domain terms, defined.
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [Abm Industries Authentication](https://apis.io/security/abm-industries/abm-industries-authentication/)
-- [Abm Industries Domain Security](https://apis.io/security/abm-industries/abm-industries-domain-security/)
+- [ABM Industries Authentication](https://apis.io/security/abm-industries/abm-industries-authentication/)
+- [ABM Industries Domain Security](https://apis.io/security/abm-industries/abm-industries-domain-security/)
 
 #### OAuth scopes (1)
 
 The permissions the API asks for.
 
-- [Abm Industries Scopes](https://apis.io/scopes/abm-industries/abm-industries-scopes/)
+- [ABM Industries Scopes](https://apis.io/scopes/abm-industries/abm-industries-scopes/)
 
 #### Plans and pricing (1)
 
 Published plans, tiers and prices.
 
-- [Abm Industries Plans Pricing](https://apis.io/plans/abm-industries/abm-industries-plans-pricing/)
+- [ABM Industries Plans Pricing](https://apis.io/plans/abm-industries/abm-industries-plans-pricing/)
 
 #### Rate limits (1)
 
 Published request limits.
 
-- [Abm Industries Rate Limits](https://apis.io/rate-limits/abm-industries/abm-industries-rate-limits/)
+- [ABM Industries Rate Limits](https://apis.io/rate-limits/abm-industries/abm-industries-rate-limits/)
 
 #### FinOps (1)
 
 What the API costs to run, by operation.
 
-- [Abm Industries Finops](https://apis.io/finops/abm-industries/abm-industries-finops/)
+- [ABM Industries Finops](https://apis.io/finops/abm-industries/abm-industries-finops/)
 
 ## Where to find this API
 
@@ -134,7 +134,7 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 28.6** — thin · rubric 0.24.0 · scored 2026-10-17
+**Kin Score 29.4** — thin · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
@@ -143,9 +143,9 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Contract governance | 31.8 |
 | Operational transparency | 0.0 |
 | Developer ergonomics | 33.3 |
-| Access clarity | 21.1 |
+| Access clarity | 29.8 |
 
-**Agent readiness 11.9** — agent-aware
+**Agent readiness 11.6** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -168,8 +168,14 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Protected Resource Metadata | — |
 | Dynamic Client Registration | — |
 | Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
-**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+**Regulatory alignment 28.4** — Horizontal (data, software, accessibility, platform)
 
 The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/abm-industries/](https://apis.io/providers/abm-industries/).
 
